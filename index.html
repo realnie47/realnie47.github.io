@@ -61,13 +61,13 @@
 
   
     
-    <h3 class="article-title"><a href="/2017/07/02/随笔/"><span>随笔</span></a></h3>
+    <h3 class="article-title"><a href="/2017/07/02/个人站点/"><span>个人站点</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2017/07/02/随笔/" rel="bookmark">
+      <a href="/2017/07/02/个人站点/" rel="bookmark">
         <time class="entry-date published" datetime="2017-07-02T08:46:44.000Z">
           2017-07-02
         </time>
@@ -81,7 +81,7 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>没心情写什么随笔了，就这样吧。安好。<br>好吧。</p>
+        <p>随便做的一个站点，使用阿里云主机：<a href="http://47.93.102.235。" target="_blank" rel="external">http://47.93.102.235。</a></p>
 
       
     </div>
@@ -129,72 +129,25 @@
       
         <ol>
 <li>创建一个GitHub Pages 。关于什么是Github Pages和如何创建Github Pages可以参考<a href="http://jmcglone.com/guides/github-pages/" target="_blank" rel="external">A Guide to Creating and Hosting a Personal Website on GitHub</a>。</li>
-<li>安装一个静态博客框架。这里选择Hexo。关于什么是Hexo及其如何安装可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">文档 | Hexo</a>。</li>
+<li>安装一个静态网站框架。这里选择Hexo。关于什么是Hexo及其如何安装可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">文档 | Hexo</a>。</li>
 <li><p>建站。在终端中执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件（<folder>是指定的文件夹目录）：</folder></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
 </li>
-<li><p>配置 _config.yml 文件。在这里可以配置网站的相关参数，如网站名称、网站描述等。</p>
+<li><p>配置 _config.yml 文件。在这里可以配置网站的相关参数，如网站名称、网站描述、部署信息等。</p>
 </li>
 <li><p>创建文章。可以使用如下命令创建文章：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ hexo new &quot;Your title&quot;</div></pre></td></tr></table></figure>
 </li>
 <li><p>编辑文章。使用文本编辑器编辑文章。 </p>
 </li>
+<li>开启Hexo服务。必须开启Hexo服务才能在本地实时查看生成的网页。首先安装hexo-server：<br><code>$ npm install hexo-server --save</code><br>输入如下命令启动服务器：<br><code>$ hexo server</code>或<code>$ hexo s</code></li>
+<li>预览本地效果。 在浏览器地址栏输入<a href="http://localhost:4000，查看实时生成的网站效果。" target="_blank" rel="external">http://localhost:4000，查看实时生成的网站效果。</a></li>
+<li>发布网站。使用如下命令生成静态文件并部署到服务器上：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy</div><div class="line">$ hexo deploy --generate</div></pre></td></tr></table></figure>
+</li>
 </ol>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/07/02/hello-world/"><span>Hello World</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/07/02/hello-world/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-02T07:49:54.000Z">
-          2017-07-02
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>在部署之前首先要配置好Git。然后修改_config.yml文件的deploy字段。配置信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: git@github.com:user/user.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure></p>
+<p>需要注意一点的是YAML依靠缩进来确定元素间的从属关系，所以deploy后面的参数都要缩进相同长度。<br>在浏览器地址栏输入Github Pages的地址，就可以看到部署好的网站了。</p>
+<p>另：更改主题。可以在<a href="https://hexo.io/themes/" target="_blank" rel="external">Themes | Hexo</a>浏览并下载主题。将下载好的主题文件夹放在themes目录中，并将文件夹名字更改为主题名称。修改_config.yml文件的theme字段为你所选择的主题名称。</p>
 
       
     </div>
