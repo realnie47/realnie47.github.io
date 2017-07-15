@@ -308,16 +308,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2017/07/12/CSS选择器优先级判断的简单方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -354,7 +344,8 @@
 </ul>
 <a id="more"></a>
 <h1 id="优先级判断实例"><a href="#优先级判断实例" class="headerlink" title="优先级判断实例"></a>优先级判断实例</h1><h2 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;father&quot; class=&quot;c1&quot;&gt;</div><div class="line">	&lt;p id=&quot;son&quot; class=&quot;c2&quot;&gt;</div><div class="line">		试问这行字体是什么颜色的？</div><div class="line">	&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>添加样式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#father #son &#123;  </div><div class="line">				color:blue;</div><div class="line">			 &#125;</div><div class="line">			</div><div class="line">#father p.c2 &#123;</div><div class="line">				color:black;</div><div class="line">			 &#125;</div></pre></td></tr></table></figure></p>
+<p>添加样式：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#father #son &#123;  </div><div class="line">				color:blue;</div><div class="line">			 &#125;</div><div class="line">			</div><div class="line">#father p.c2 &#123;</div><div class="line">				color:black;</div><div class="line">			 &#125;</div></pre></td></tr></table></figure></p>
 <p>文字的颜色为蓝色，判断如下：</p>
 <ul>
 <li>没有内联样式。</li>
@@ -362,14 +353,16 @@
 <li>第一个选择器包含两个id选择器，则a位为2，b、c位为0，故优先级为2，0，0.第二个选择器包含一个id选择器，a位为1；一个类选择器，b位位1；一个元素选择器，c位为1.故优先级为1，1，1.从a位开始逐位比较，因为第一个选择器a位为2，第二个选择器a位为1，则第一个选择器优先级大（后面的位数比较省略),所以应用第一个选择器，文字为蓝色。</li>
 </ul>
 <h2 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;father&quot;&gt;</div><div class="line">	&lt;p &gt;试问这行字体是什么颜色的？&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>添加样式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">	color:blue;</div><div class="line">  &#125;</div><div class="line">#father &#123;</div><div class="line">		    color:red;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<p>添加样式：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">	color:blue;</div><div class="line">  &#125;</div><div class="line">#father &#123;</div><div class="line">		    color:red;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
 <p>文字的颜色为蓝色，判断如下：</p>
 <ul>
 <li>没有内联样式。</li>
 <li>第一个选择器直接为p元素指定样式，第二个选择器没有直接给p元素指定样式，而是给它继承，所以第一个选择器优先级更高，应用第一个选择器的样式。权值的比较可以忽略。（事实上，如果比较权值会得出第二个选择器优先级更高的结论，因为两个选择器优先级分别为0，0，1和1，0，0，）</li>
 </ul>
 <h2 id="例三"><a href="#例三" class="headerlink" title="例三"></a>例三</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;father&quot; class=&quot;c1&quot;&gt;</div><div class="line">	&lt;p class=&quot;c2&quot;&gt;</div><div class="line">		试问这行字体是什么颜色的？</div><div class="line">	&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>添加样式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">div p &#123;   </div><div class="line">	    color:red;</div><div class="line">	  &#125;</div><div class="line">#father &#123;</div><div class="line">		  color:red;</div><div class="line">		&#125;</div><div class="line">p.c2 &#123;    </div><div class="line">	    color:blue;</div><div class="line">	 &#125;</div></pre></td></tr></table></figure></p>
+<p>添加样式：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">div p &#123;   </div><div class="line">	    color:red;</div><div class="line">	  &#125;</div><div class="line">#father &#123;</div><div class="line">		  color:red;</div><div class="line">		&#125;</div><div class="line">p.c2 &#123;    </div><div class="line">	    color:blue;</div><div class="line">	 &#125;</div></pre></td></tr></table></figure></p>
 <p>文字的颜色为蓝色，判断如下：</p>
 <ul>
 <li>没有内联样式。</li>
@@ -377,7 +370,8 @@
 <li>第一、三个选择器的优先级分别为0，0，2和0，2，1.第三个选择器优先级最高，应用第三个选择器的样式。</li>
 </ul>
 <h2 id="例四"><a href="#例四" class="headerlink" title="例四"></a>例四</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">		&lt;div&gt;</div><div class="line">			&lt;div&gt;</div><div class="line">				&lt;div&gt;</div><div class="line">					&lt;div&gt;</div><div class="line">						&lt;div&gt;</div><div class="line">							&lt;div&gt;</div><div class="line">								&lt;div&gt;</div><div class="line">									&lt;div&gt;</div><div class="line">										&lt;div&gt;</div><div class="line">											&lt;div&gt;</div><div class="line">												&lt;div class=&quot;me&quot;&gt;试问这行文字是什么颜色的</div><div class="line">												&lt;/div&gt;</div><div class="line">											&lt;/div&gt;</div><div class="line">										&lt;/div&gt;</div><div class="line">									&lt;/div&gt;</div><div class="line">								&lt;/div&gt;</div><div class="line">							&lt;/div&gt;</div><div class="line">						&lt;/div&gt;</div><div class="line">					&lt;/div&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>添加样式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div div div div div div div div div div div div &#123;  </div><div class="line">			color:red;</div><div class="line">		&#125;</div><div class="line">.me&#123; </div><div class="line">		color:blue;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>添加样式：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div div div div div div div div div div div div &#123;  </div><div class="line">			color:red;</div><div class="line">		&#125;</div><div class="line">.me&#123; </div><div class="line">		color:blue;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
 <p>文字的颜色为蓝色，判断如下：</p>
 <ul>
 <li>没有内联样式。</li>
@@ -457,8 +451,6 @@
 
           
   <div class="comments" id="comments">
-    
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
   </div>
 
@@ -716,21 +708,18 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "fc21022bbff94dba936f637041d8fbb5",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+
+
+
   
 
 
 
 
+
+  
 
 
 
