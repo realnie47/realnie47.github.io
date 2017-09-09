@@ -95,14 +95,14 @@
 
 <meta name="description" content="学习前端时，需要在在本地搭建一个网页服务器环境，Mac自带了Apache服务器，只需开启并做简单的配置就可以使用了，具体步骤如下。 系统环境MacOS系统自带Apache及PHP，但是版本不尽相同。我所使用的设备环境如下：  系统版本：MacOS Sierra 10.12.5 Apache版本：2.4.25 PHP版本：5.6.30">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下Apache + PHP环境搭建 ">
+<meta property="og:title" content="Mac下Apache + PHP7环境搭建 ">
 <meta property="og:url" content="https://realnie47.github.io/2017/07/03/Mac下Apache-PHP环境搭建/index.html">
 <meta property="og:site_name" content="一枚萌新">
 <meta property="og:description" content="学习前端时，需要在在本地搭建一个网页服务器环境，Mac自带了Apache服务器，只需开启并做简单的配置就可以使用了，具体步骤如下。 系统环境MacOS系统自带Apache及PHP，但是版本不尽相同。我所使用的设备环境如下：  系统版本：MacOS Sierra 10.12.5 Apache版本：2.4.25 PHP版本：5.6.30">
 <meta property="og:image" content="https://realnie47.github.io/images/It%20works.png">
-<meta property="og:updated_time" content="2017-07-06T10:29:28.000Z">
+<meta property="og:updated_time" content="2017-08-27T12:21:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac下Apache + PHP环境搭建 ">
+<meta name="twitter:title" content="Mac下Apache + PHP7环境搭建 ">
 <meta name="twitter:description" content="学习前端时，需要在在本地搭建一个网页服务器环境，Mac自带了Apache服务器，只需开启并做简单的配置就可以使用了，具体步骤如下。 系统环境MacOS系统自带Apache及PHP，但是版本不尽相同。我所使用的设备环境如下：  系统版本：MacOS Sierra 10.12.5 Apache版本：2.4.25 PHP版本：5.6.30">
 <meta name="twitter:image" content="https://realnie47.github.io/images/It%20works.png">
 
@@ -138,7 +138,7 @@
 
 
 
-  <title>Mac下Apache + PHP环境搭建  | 一枚萌新</title>
+  <title>Mac下Apache + PHP7环境搭建  | 一枚萌新</title>
   
 
 
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac下Apache + PHP环境搭建 </h1>
+          <h1 class="post-title" itemprop="name headline">Mac下Apache + PHP7环境搭建 </h1>
         
 
         <div class="post-meta">
@@ -347,7 +347,7 @@
 说明Apache开启成功并正在运行。</p>
 <h2 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h2><h3 id="自定义目录"><a href="#自定义目录" class="headerlink" title="自定义目录"></a>自定义目录</h3><p>Apache服务器默认的网页目录为
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Library/WebServer/Documents</div></pre></td></tr></table></figure></p>
-<p>可以在这里存放网页文件。但是这个目录操作起来不太方便，所以通常自定义一个目录。可以通过修改Apache服务器的配置文件实现。
+<p>可以在这里存放网页文件。但是这个目录是隐藏的操作起来不太方便，所以通常自定义一个目录。可以通过修改Apache服务器的配置文件实现。
 方法如下：</p>
 <ol>
 <li><p>进入存放Apache服务器配置文件的目录，在终端中执行如下命令：</p>
@@ -362,26 +362,33 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi httpd.conf</div></pre></td></tr></table></figure>
 <p> 进入vi模式，查找DocumentRoot字段。将</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DocumentRoot &quot;/Library/WebServer/Documents&quot;</div><div class="line">&lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;</div></pre></td></tr></table></figure>
-<p> 中的目录修改为自定义目录.并将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Options FollowSymLinks Multiviews</div></pre></td></tr></table></figure>
-<p> 修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Options Indexes FollowSymLinks Multiviews</div></pre></td></tr></table></figure>
+<p> 中的目录修改为自定义目录.</p>
 <p> 退出并保存。重启Apache服务器，之后就可以将网页文件放在这个目录下。在浏览器地址栏输入<a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a> ，可以看到自己编写的页面，则设置成功（页面文件需命名为index.html)。</p>
 </li>
 </ol>
 <h3 id="开启PHP"><a href="#开启PHP" class="headerlink" title="开启PHP"></a>开启PHP</h3><p>MacOS系统自带PHP，只需为Apache服务器开启PHP支持，即可让Apache服务器支持PHP。方法如下：</p>
 <ol>
 <li>编辑Apache配置文件，方法同上。</li>
-<li><p>找到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#LoadModule php5_module libexec/apache2/libphp5.so</div></pre></td></tr></table></figure>
-<p> 删除前面的“#”。</p>
-</li>
-<li>保存退出，并重启Apache服务器。</li>
-<li><p>验证PHP是否开启。可以创建一个index.php文件。在文件中添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php phpinfo(); ?&gt;</div></pre></td></tr></table></figure>
-<p> 将该文件放在自定义的Apache服务器目录中，在浏览器地址栏输入<a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a> ，可以看到PHP版本信息的页面，则PHP开启成功。</p>
+<li>找到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#LoadModule php5_module libexec/apache2/libphp5.so</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>删除前面的“#”。</p>
+<ol>
+<li>保存退出，并重启Apache服务器。</li>
+<li>验证PHP是否开启。可以创建一个index.php文件。在文件中添加如下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php phpinfo(); ?&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将该文件放在自定义的Apache服务器目录中，在浏览器地址栏输入<a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a> ，可以看到PHP版本信息的页面，则PHP开启成功。</p>
+<h2 id="升级MAC系统自带的PHP5至PHP7"><a href="#升级MAC系统自带的PHP5至PHP7" class="headerlink" title="升级MAC系统自带的PHP5至PHP7"></a>升级MAC系统自带的PHP5至PHP7</h2><p>MAC 系统虽然自带PHP5版本，但是PHP7版本目前已经广泛运用，所以可以将MAC系统自带的PHP升级到PHP7.
+网上大多数的解决方案是使用brew安装PHP7，再通过配置环境变量使通过brew安装的PHP7成为默认的PHP版本。操作比较繁琐，而且很容易失败。
+这里采用另一种傻瓜方式，直接将系统的PHP5替换为PHP7.
+在终端输入
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -s http://php-osx.liip.ch/install.sh | bash -s 7.1</div></pre></td></tr></table></figure></p>
+<p>等待安装完成。
+安装完成后可以使用
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php -v</div></pre></td></tr></table></figure></p>
+<p>查看当前PHP版本。
+采用这种方式安装的PHP7，可以不用修改Apache配置文件便可开启PHP7.可以参考<a href="https://coolestguidesontheplanet.com/upgrade-php-on-osx/" target="_blank" rel="external">这里</a>来了解更多信息。</p>
 
       
     </div>
@@ -502,7 +509,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -561,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统环境"><span class="nav-number">1.</span> <span class="nav-text">系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启Apache"><span class="nav-number">2.</span> <span class="nav-text">开启Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Apache"><span class="nav-number">3.</span> <span class="nav-text">配置Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义目录"><span class="nav-number">3.1.</span> <span class="nav-text">自定义目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启PHP"><span class="nav-number">3.2.</span> <span class="nav-text">开启PHP</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统环境"><span class="nav-number">1.</span> <span class="nav-text">系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启Apache"><span class="nav-number">2.</span> <span class="nav-text">开启Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Apache"><span class="nav-number">3.</span> <span class="nav-text">配置Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义目录"><span class="nav-number">3.1.</span> <span class="nav-text">自定义目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启PHP"><span class="nav-number">3.2.</span> <span class="nav-text">开启PHP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级MAC系统自带的PHP5至PHP7"><span class="nav-number">4.</span> <span class="nav-text">升级MAC系统自带的PHP5至PHP7</span></a></li></ol></div>
             
 
           </div>
